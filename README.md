@@ -2,27 +2,44 @@
 
 ## Overview
 
-The **AnyDisc Automated AST Imaging and Reporting System** is a Python-based tool for automated analysis of antibiotic susceptibility test (AST) images. It uses a YOLO-based model to detect inhibition zones, recognize antibiotic disks, and annotate results directly onto the provided images. The system outputs processed images and corresponding result files in CSV format.
+The **AnyDisc Automated AST Imaging and Reporting System** is a Python-based tool that automates the analysis of antibiotic susceptibility test (AST) images. Using a YOLOv7-tiny model, it detects inhibition zones, identifies antibiotic disks, and annotates the results on the image. The processed images and CSV reports provide detailed insights into the detected zones and disk placements.
 
 ---
 
 ## Features
 
-- **Automated Detection**: Identifies inhibition zones and antibiotic disks using a pre-trained YOLO model.
-- **Annotation**: Annotates the processed image with zone and disk information.
-- **CSV Export**: Outputs detailed information, including inhibition zone radius and disk position, in CSV format.
-- **Device Agnostic**: Runs on either GPU or CPU based on system availability.
+- **Automated Detection**: Detects inhibition zones and antibiotic disks with high accuracy.
+- **Annotation**: Automatically draws annotations on the provided image.
+- **CSV Export**: Outputs a detailed CSV file with inhibition zone measurements and antibiotic disk information.
+- **Customizable**: The YOLOv7-tiny model allows for further training and expansion for additional antibiotic disk types or zone analyses.
 
 ---
 
 ## Prerequisites
 
-1. **Python 3.x**: Ensure Python is installed on your system.
-2. **Dependencies**: Install the required Python packages using:
+1. **Python 3.x**: Ensure Python is installed.
+2. **Dependencies**: Install required Python packages:
    ```bash
    pip install torch opencv-python-headless
    ```
-3. **Model Weights**: Ensure the YOLO model weights (`MIC_best.pt`) and antibiotic range data (`Drug_new.json`) are present in the working directory.
+3. **YOLOv7-tiny Model Weights**: Make sure the model weights (`MIC_best.pt`) and antibiotic data (`Drug_new.json`) are available in the working directory.
+
+---
+
+## Model Details: YOLOv7-Tiny
+
+The model used, **`MIC_best.pt`**, is based on **YOLOv7-tiny**, a lightweight and efficient object detection architecture. It is trained to detect inhibition zones and antibiotic disks in AST images.
+
+- **Future Expansion**:  
+   If needed, you can retrain or fine-tune this model on additional datasets to expand its capabilities. This makes it suitable for:
+   - Adding more antibiotic types.
+   - Improving detection accuracy.
+   - Adapting the system to new use cases.
+  
+- **Transfer Learning**:  
+   Use this model as the foundation for further training by leveraging **YOLOv7-tiny**'s architecture and performance. This allows the system to support evolving antibiotic susceptibility testing needs.
+
+To retrain the model, you can gather additional data, annotate it, and fine-tune the model using YOLOv7's standard training procedures.
 
 ---
 
@@ -39,8 +56,8 @@ python detect.py \
 ```
 
 ### **Parameters**
-- `--input_image`: Path to the input AST image (e.g., `./data/TestPhoto/2023-08-25_15:18:34.jpg`).
-- `--output_image`: Path where the processed image will be saved (e.g., `./static/output/processed_image_2024-10-15_17-38-11.jpg`).
+- `--input_image`: Path to the input AST image.
+- `--output_image`: Path where the processed image will be saved.
 - `--bac`: Type of bacteria (default: `Enterobacterales`).
 - `--dish`: Diameter of the petri dish in cm (default: 9).
 
@@ -49,11 +66,10 @@ python detect.py \
 ## Output
 
 1. **Processed Image**: 
-   - Annotated image showing inhibition zones and antibiotic disks saved at the specified path (e.g., `./static/output/processed_image_2024-10-15_17-38-11.jpg`).
+   - Annotated image with inhibition zones and antibiotic disk labels saved at the specified path.
 
 2. **CSV Report**:
-   - CSV file containing detailed information about detected inhibition zones and antibiotic disks.
-   - Example output saved as `./static/output/result_20241015_173812.csv`.
+   - Detailed CSV output containing information about detected zones and disk placements.
 
 **Sample CSV Output (Inhibition Zones):**
 | Radius | Central_x | Central_y | Width | Height | Site | lefttop_x | lefttop_y | rightbottom_x | rightbottom_y |
@@ -74,24 +90,14 @@ python detect.py \
 1. **Image Loading**: Loads the input AST image for processing.
 2. **Inhibition Zone Detection**: Detects and measures the inhibition zones.
 3. **Antibiotic Disk Recognition**: Identifies the position and name of antibiotic disks.
-4. **Annotation**: Draws the inhibition zones and labels onto the image.
-5. **CSV Export**: Saves detailed detection results in CSV format.
-
----
-
-## Example Output
-
-- **Processed Image**:  
-  `./static/output/processed_image_2024-10-15_17-38-11.jpg`
-
-- **CSV Result File**:  
-  `./static/output/result_20241015_173812.csv`
+4. **Annotation**: Draws inhibition zones and disk information onto the image.
+5. **CSV Export**: Saves detection results in a CSV file.
 
 ---
 
 ## Error Handling
 
-- **Missing Model Weights**: If the `MIC_best.pt` file is missing, the program will display:
+- **Missing Model Weights**: If the `MIC_best.pt` file is missing:
   ```
   Error: Model weights 'MIC_best.pt' not found
   ```
@@ -120,15 +126,30 @@ AnyDisc-Public/
 
 ---
 
+## Future Development
+
+The system's use of YOLOv7-tiny as the base model opens opportunities for further development and customization. 
+
+- **Additional Training**:  
+   Collect new data and fine-tune the model to improve its detection capabilities for new antibiotics or special cases.
+   
+- **Integration with Other Systems**:  
+   Extend the tool's usage to integrate with lab management systems, automating the reporting process further.
+
+- **Performance Enhancements**:  
+   The lightweight nature of YOLOv7-tiny ensures fast processing, but it can also be scaled up by retraining with more complex architectures if needed.
+
+---
+
 ## License
 
-This project is open-source. Feel free to use, modify, and distribute it as per the project's license.
+This project is open-source. Feel free to use, modify, and distribute it according to the project’s license.
 
 ---
 
 ## Conclusion
 
-The **AnyDisc Automated AST Imaging and Reporting System** simplifies the process of AST result interpretation by automating inhibition zone detection and antibiotic disk recognition. With easy-to-use commands and clear outputs, it is a powerful tool for researchers and healthcare professionals alike.
+The **AnyDisc Automated AST Imaging and Reporting System** streamlines the AST result interpretation process by leveraging a YOLOv7-tiny model for accurate inhibition zone detection and antibiotic disk recognition. With future training opportunities and easy-to-understand outputs, it serves as a valuable tool for researchers and healthcare professionals.
 
 ---
 

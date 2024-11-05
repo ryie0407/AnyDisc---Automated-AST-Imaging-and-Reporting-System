@@ -1,10 +1,10 @@
 # AnyDisc Automated AST Imaging and Reporting System
-
+![ATCC25922_ATRI_1_4 circle](https://github.com/user-attachments/assets/63e00442-a2b7-4259-8880-fcb92c4c7fec)
 ## Overview
 
 The **AnyDisc Automated AST Imaging and Reporting System** is a Python-based tool that automates the analysis of antibiotic susceptibility test (AST) images. Using a YOLOv7-tiny model, it detects inhibition zones, identifies antibiotic disks, and annotates the results on the image. The processed images and CSV reports provide detailed insights into the detected zones and disk placements.
 
----![ATCC25922_ATRI_1_4 circle](https://github.com/user-attachments/assets/63e00442-a2b7-4259-8880-fcb92c4c7fec)
+---
 
 
 ## Features

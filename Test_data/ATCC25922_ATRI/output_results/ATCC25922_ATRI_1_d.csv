@@ -1,0 +1,4 @@
+Central,MIC_name,confidence,lefttop_x,lefttop_y,rightbottom_x,rightbottom_y
+"(376, 171)",CT10,0.935645,358,153,394,190
+"(224, 183)",CF30,0.8854468,207,166,242,201
+"(313, 333)",ER5,0.79431707,294,314,332,353

@@ -1,0 +1,56 @@
+{
+    "CF30": {
+        "Enterobacterales": [26, 31],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    },
+    "CT10": {
+        "Enterobacterales": [11, 17],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    },
+    "ER5": {
+        "Enterobacterales": [32, 40],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    },
+    "CL": {
+        "Enterobacterales": [11, 17],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    },
+    "D": {
+        "Enterobacterales": [10, 14],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    },
+    "ENO": {
+        "Enterobacterales": [16, 23],
+        "Staphylococcus": "-",
+        "Pasteurella": "-",
+        "APP": "-",
+        "Pseudomonas": "-",
+        "Streptococcus": "-",
+        "Histophilus": "-"
+    }
+}
